@@ -584,6 +584,7 @@ button {
 .venues-grid,
 .future-grid,
 .trainers-grid,
+.reviews-grid,
 .contacts-grid,
 .method-grid,
 .ages-grid,
@@ -594,6 +595,7 @@ button {
 }
 
 .benefits-grid,
+.reviews-grid,
 .contacts-grid,
 .method-grid,
 .ages-grid,
@@ -646,7 +648,20 @@ button {
   color: var(--club-white);
 }
 
+.trainer-placeholder-logo {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  opacity: 0.12;
+  transform: translate(-50%, -50%);
+  filter: saturate(0) brightness(2.2);
+}
+
 .trainer-placeholder strong {
+  position: relative;
+  z-index: 1;
   display: inline-grid;
   place-items: center;
   width: 88px;
@@ -662,6 +677,8 @@ button {
 }
 
 .trainer-placeholder span {
+  position: relative;
+  z-index: 1;
   display: block;
   max-width: 220px;
   color: rgba(255, 255, 255, 0.78);
@@ -714,6 +731,100 @@ button {
   margin-top: 16px;
   color: var(--club-muted);
   font-size: 0.94rem;
+}
+
+.review-card {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 246, 255, 0.93)),
+    repeating-linear-gradient(
+      -58deg,
+      rgba(13, 45, 119, 0.02) 0 12px,
+      rgba(13, 45, 119, 0) 12px 30px
+    );
+  border: 1px solid rgba(13, 45, 119, 0.08);
+  box-shadow: var(--club-shadow);
+}
+
+.review-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, var(--club-red), #1ea35f);
+}
+
+.review-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.review-meta {
+  display: grid;
+  gap: 6px;
+}
+
+.review-author {
+  margin: 0;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--club-blue);
+}
+
+.review-date {
+  margin: 0;
+  color: var(--club-red-dark);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.review-text {
+  margin: 0;
+  color: var(--club-text);
+}
+
+.review-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 163, 95, 0.18);
+  background: rgba(30, 163, 95, 0.1);
+  color: #198b50;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.review-source svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.review-source-hero {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--club-white);
+}
+
+.review-source-hero svg {
+  color: #8de1ac;
 }
 
 .feature-list,
@@ -977,7 +1088,8 @@ button {
 
 .legal-card h3,
 .contacts-panel h3,
-.placeholder-panel h3 {
+.placeholder-panel h3,
+.reviews-panel h3 {
   margin: 0 0 14px;
   font-family: "Oswald", "Arial Narrow", sans-serif;
   font-size: 2rem;
@@ -999,7 +1111,8 @@ button {
 }
 
 .contacts-layout,
-.placeholder-layout {
+.placeholder-layout,
+.reviews-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.7fr);
   gap: 20px;
@@ -1007,7 +1120,8 @@ button {
 }
 
 .contacts-panel,
-.placeholder-panel {
+.placeholder-panel,
+.reviews-panel {
   padding: 28px;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.9);
@@ -1016,9 +1130,27 @@ button {
 }
 
 .contacts-panel p,
-.placeholder-panel p {
+.placeholder-panel p,
+.reviews-panel p {
   margin: 0 0 18px;
   color: var(--club-muted);
+}
+
+.reviews-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.reviews-panel p {
+  margin: 0;
+}
+
+.reviews-panel .check-list {
+  margin: 0;
+}
+
+.reviews-panel .btn + .btn {
+  margin-top: -8px;
 }
 
 .site-footer {
@@ -1103,6 +1235,7 @@ button {
   .hero-grid,
   .contacts-layout,
   .placeholder-layout,
+  .reviews-layout,
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -1120,6 +1253,7 @@ button {
   .venues-grid,
   .future-grid,
   .trainers-grid,
+  .reviews-grid,
   .timeline-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1169,6 +1303,7 @@ button {
   .venues-grid,
   .future-grid,
   .trainers-grid,
+  .reviews-grid,
   .contacts-grid,
   .method-grid,
   .ages-grid,
@@ -1214,6 +1349,7 @@ button {
   .benefit-card,
   .venue-card,
   .future-card,
+  .review-card,
   .trainer-body,
   .placeholder-card,
   .method-card,
@@ -1222,12 +1358,17 @@ button {
   .timeline-card,
   .contacts-panel,
   .placeholder-panel,
+  .reviews-panel,
   .legal-card {
     padding: 22px;
   }
 
   .hero-card {
     gap: 22px;
+  }
+
+  .review-top {
+    flex-direction: column;
   }
 
   .hero-stats,
